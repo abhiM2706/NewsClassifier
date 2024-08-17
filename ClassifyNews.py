@@ -30,6 +30,6 @@ inputs = tokenizer.encode(test, return_tensors="pt").to(device)
 
 print(inputs)
 outputs = model(inputs)
-
-print(outputs)
+#print(outputs)
+print("\n\nProbability:\n\nFOX / NBC\n")
 print(F.softmax(outputs.logits, dim=-1))
