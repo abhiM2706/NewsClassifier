@@ -12,7 +12,7 @@ import torch.nn.functional as F
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-model_name_or_path = r"C:\Users\abhi2\OneDrive\Documents\Github\DigitClassifier\my_awesome_model\checkpoint-2"
+model_name_or_path = r"C:\Users\abhi2\OneDrive\Documents\Github\DigitClassifier\my_awesome_model\checkpoint-99"
 device = "cpu" # or "cuda" if you have a GPU
 
 model = AutoModelForSequenceClassification.from_pretrained(model_name_or_path).to(device)
