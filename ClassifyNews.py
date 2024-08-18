@@ -28,8 +28,18 @@ Adding fuel to the fire was Vice President Kamala Harris’ snarky response in t
 
 inputs = tokenizer.encode(test, return_tensors="pt").to(device)
 
-print(inputs)
+#print(inputs)
 outputs = model(inputs)
-#print(outputs)
+
+# Apply softmax to convert logits to probabilities
+probs = F.softmax(outputs.logits, dim=-1)
+
+# Get the predicted class by taking the argmax (the index of the highest probability)
+predicted_class = torch.argmax(probs, dim=-1)
+
+# Print the probabilities and the predicted class
 print("\n\nProbability:\n\nFOX / NBC\n")
-print(F.softmax(outputs.logits, dim=-1))
+print(probs)
+
+print("\n\nPredicted Class:\n")
+print(predicted_class.item())  # Use item() to convert the tensor to a scalar
